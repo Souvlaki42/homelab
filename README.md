@@ -48,6 +48,6 @@ I was inspired by this YouTube video for the most part: https://www.youtube.com/
 > [!NOTE]
 > If you find any issues with the repository, please open an issue. Also, if you like this repository and want to support me, you can do so by giving me a star on GitHub.
 
-## License
+## Unlicense
 
-[MIT](LICENSE)
+This project is released into the public domain. See the [UNLICENSE](UNLICENSE) file for more information.
