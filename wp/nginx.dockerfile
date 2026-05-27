@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM docker.io/library/nginx:stable-alpine
 
 ADD ./nginx/default.conf /etc/nginx/conf.d/default.conf
 ADD ./nginx/certs /etc/nginx/certs/self-signed
