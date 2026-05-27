@@ -1,4 +1,6 @@
 mysql/
 nginx/certs/
 wordpress/
-wordpress.zip
+*.zip
+*cache*/
+*data*/
