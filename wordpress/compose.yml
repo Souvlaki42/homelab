@@ -54,4 +54,4 @@ services:
       dockerfile: php.dockerfile
     volumes:
       - ./site:/var/www/html
-    entrypoint: [ "wp", "--allow-root" ]
+    entrypoint: ["wp", "--allow-root"]
