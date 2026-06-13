@@ -1,6 +1,6 @@
-mysql/
-nginx/certs/
-wordpress/
+*/mysql/
+*/nginx/certs/
+*/site/
 *.zip
 *cache*/
 *data*/
