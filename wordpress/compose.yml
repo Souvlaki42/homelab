@@ -14,12 +14,12 @@ services:
       - 8080:80
       - 8443:443
     volumes:
-      - ./wordpress:/var/www/html
+      - ./site:/var/www/html
     networks:
       - wordpress
 
   mysql:
-    image: mysql:latest
+    image: docker.io/library/mysql:latest
     container_name: mysql
     restart: always
     ports:
@@ -42,15 +42,16 @@ services:
       context: .
       dockerfile: php.dockerfile
     volumes:
-      - ./wordpress:/var/www/html
+      - ./site:/var/www/html
+      - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
     networks:
       - wordpress
 
   wp:
-    container_name: wp
+    container_name: cli
     build:
       context: .
       dockerfile: php.dockerfile
     volumes:
-      - ./wordpress:/var/www/html
-    entrypoint: ["wp", "--allow-root"]
+      - ./site:/var/www/html
+    entrypoint: [ "wp", "--allow-root" ]
