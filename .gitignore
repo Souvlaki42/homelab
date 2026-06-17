@@ -1,6 +1,7 @@
 */mysql/
 */nginx/certs/
 */site/
-*.zip
+*/*.zip
+*/*.tar.gz
 *cache*/
 *data*/
