@@ -11,12 +11,16 @@ services:
       - php
       - mysql
     ports:
-      - 8080:80
-      - 8443:443
+      - 80:80
+      - 443:443
     volumes:
       - ./site:/var/www/html
     networks:
-      - wordpress
+      wordpress:
+        aliases:
+          - wp.local
+    extra_hosts:
+      - "wp.local:127.0.0.1"
 
   mysql:
     image: docker.io/library/mysql:latest
