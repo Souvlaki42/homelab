@@ -1,5 +1,5 @@
 # Use PHP 8.3 FPM Alpine as the base image
-FROM docker.io/library/php:8.3-fpm-alpine
+FROM docker.io/php:8.3-fpm-alpine
 
 # Make log file
 RUN touch /var/log/error_log
