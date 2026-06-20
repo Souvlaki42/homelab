@@ -1,33 +1,12 @@
 networks:
   wordpress:
+  proxy:
+    external: true
 
 services:
-  site:
-    container_name: caddy
-    image: caddy:alpine
-    restart: unless-stopped
-    depends_on:
-      - "php"
-      - "mysql"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ./site:/var/www/html
-      - ./caddy:/etc/caddy
-      - ./caddy_data:/data
-      - ./caddy_config:/config
-    networks:
-      wordpress:
-        aliases:
-          - wp.local
-    extra_hosts:
-      - "wp.local:127.0.0.1"
-
-  mysql:
+  db:
     image: docker.io/mysql:latest
-    container_name: mysql
+    container_name: wp-mysql
     restart: always
     ports:
       - 3306:3306
@@ -41,10 +20,11 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     networks:
+      - proxy
       - wordpress
 
   php:
-    container_name: php
+    container_name: wp-php
     userns_mode: keep-id
     user: wp
     group_add:
@@ -56,4 +36,5 @@ services:
       - ./site:/var/www/html
       - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
     networks:
+      - proxy
       - wordpress

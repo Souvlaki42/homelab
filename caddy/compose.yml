@@ -1,0 +1,25 @@
+networks:
+  proxy:
+    external: true
+
+services:
+  proxy:
+    container_name: caddy
+    image: caddy:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./routing:/etc/caddy
+      - ./data:/data
+      - ./config:/config
+
+      - ../wordpress/site:/srv/wp # wordpress
+    networks:
+      proxy:
+        aliases:
+          - wp.local
+    extra_hosts:
+      - "wp.local:127.0.0.1"
