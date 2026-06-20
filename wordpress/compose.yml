@@ -33,7 +33,7 @@ services:
       context: .
       dockerfile: php.dockerfile
     volumes:
-      - ./site:/var/www/html
+      - ./site:/srv/wp
       - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
     networks:
       - proxy
