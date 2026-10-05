@@ -1,0 +1,13 @@
+router.localhost {
+	reverse_proxy 192.168.2.1:80 {
+		header_up Host 192.168.2.1
+	}
+}
+
+sync.localhost {
+	reverse_proxy localhost:8384
+}
+
+wp.localhost {
+	reverse_proxy localhost:8080
+}
