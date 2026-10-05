@@ -1,9 +1,27 @@
 networks:
   wordpress:
-  proxy:
-    external: true
+
+volumes:
+  site:
+  db:
 
 services:
+  site:
+    image: docker.io/wordpress:php8.4-fpm-alpine
+    container_name: wp-site
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: secret
+      WORDPRESS_DB_NAME: wp
+    volumes:
+      - ./site:/var/www/html
+    networks:
+      - wordpress
+
   db:
     image: docker.io/mariadb:12.3-noble
     container_name: wp-db
@@ -14,22 +32,6 @@ services:
       MYSQL_PASSWORD: secret
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     volumes:
-      - ./mariadb:/var/lib/mysql
+      - ./db:/var/lib/mysql
     networks:
-      - proxy
-      - wordpress
-
-  site:
-    image: docker.io/wordpress:php8.4-fpm-alpine
-    container_name: wp-site
-    restart: unless-stopped
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wp
-      WORDPRESS_DB_PASSWORD: secret
-      WORDPRESS_DB_NAME: wp
-    volumes:
-      - ./site:/var/www/html
-    networks:
-      - proxy
       - wordpress
