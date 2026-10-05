@@ -1,8 +1,0 @@
-wp.local {
-	tls internal
-	root * /srv/wp
-  php_fastcgi wp-site:9000 {
-    root /var/www/html
-  }
-	file_server
-}
