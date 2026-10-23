@@ -13,6 +13,7 @@ This is my "homelab" setup, even if in reality they are running on my own comput
 ## Services
 
 - [Wordpress 7.0+ (wordpress)](/wordpress/compose.yml)
+- [Open eClass 4.4+ (eclass)](/eclass/compose.yaml)
 
 ## License
 

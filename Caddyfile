@@ -11,3 +11,7 @@ sync.localhost {
 wp.localhost {
 	reverse_proxy localhost:8080
 }
+
+eclass.localhost {
+	reverse_proxy localhost:8082
+}
