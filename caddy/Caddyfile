@@ -15,3 +15,7 @@ wp.localhost {
 eclass.localhost {
 	reverse_proxy localhost:8082
 }
+
+mc.localhost {
+	reverse_proxy localhost:8087
+}
