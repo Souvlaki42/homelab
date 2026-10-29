@@ -6,3 +6,4 @@
 */*.tar.gz
 *cache*/
 *data*/
+*/.env*

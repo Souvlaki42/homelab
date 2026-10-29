@@ -1,0 +1,31 @@
+version: "3"
+services:
+  app:
+    image: macarooniman/auto-mcs:latest
+    container_name: auto-mcs
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+    environment:
+      WEB_PORT: "8087"
+
+      WEB_USERNAME: "${WEB_USERNAME}"
+      WEB_PASSWORD: "${WEB_PASSWORD}"
+
+    ports:
+
+      # Web interface (make this the same as WEB_PORT)
+      - "8087:8080"
+
+      # Telepath API (auto-mcs)
+      - "7001:7001"
+
+      # Add more ports based on the servers you create
+      - "25565:25565"
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    volumes:
+      - ./auto-mcs-data:/root/.auto-mcs
