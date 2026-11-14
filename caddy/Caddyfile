@@ -31,3 +31,7 @@ dozzle.localhost {
 files.localhost {
 	reverse_proxy localhost:3445
 }
+
+git.localhost {
+	reverse_proxy localhost:1890
+}
