@@ -19,3 +19,7 @@ eclass.localhost {
 mc.localhost {
 	reverse_proxy localhost:8087
 }
+
+uptime.localhost {
+	reverse_proxy localhost:7367
+}
