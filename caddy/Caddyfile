@@ -23,3 +23,7 @@ mc.localhost {
 uptime.localhost {
 	reverse_proxy localhost:7367
 }
+
+dozzle.localhost {
+	reverse_proxy localhost:5678
+}
