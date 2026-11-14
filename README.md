@@ -14,6 +14,11 @@ This is my "homelab" setup, even if in reality they are running on my own comput
 
 - [Wordpress 7.0+ (wordpress)](/wordpress/compose.yml)
 - [Open eClass 4.4+ (eclass)](/eclass/compose.yaml)
+- [Auto mcs](/auto-mcs/compose.yml)
+- [Dozzle](/dozzle/compose.yml)
+- [Forgejo](/forgejo/compose.yml)
+- [Nextcloud](/nextcloud/compose.yml)
+- [Uptime Kuma](/uptime-kuma/compose.yml)
 
 ## License
 
