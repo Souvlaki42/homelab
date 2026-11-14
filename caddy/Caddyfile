@@ -27,3 +27,7 @@ uptime.localhost {
 dozzle.localhost {
 	reverse_proxy localhost:5678
 }
+
+files.localhost {
+	reverse_proxy localhost:3445
+}
