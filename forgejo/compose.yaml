@@ -18,8 +18,8 @@ services:
     networks:
       - forgejo
     volumes:
-      - ./forgejo_data:/data
-      - /etc/localtime:/etc/localtime:ro
+      - ./forgejo_data:/data:Z
+      - /etc/localtime:/etc/localtime:zro
     ports:
       - "1890:3000"
     depends_on:
@@ -35,4 +35,4 @@ services:
     networks:
       - forgejo
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data:Z

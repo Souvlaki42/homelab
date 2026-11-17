@@ -18,7 +18,7 @@ services:
       WORDPRESS_DB_PASSWORD: secret
       WORDPRESS_DB_NAME: wp
     volumes:
-      - ./site:/var/www/html
+      - ./site:/var/www/html:Z
     networks:
       - wordpress
 
@@ -32,6 +32,6 @@ services:
       MYSQL_PASSWORD: secret
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db:/var/lib/mysql:Z
     networks:
       - wordpress

@@ -6,7 +6,7 @@ services:
     ports:
       - "7367:3001"
     volumes:
-      - ./data:/app/data:z
+      - ./data:/app/data:Z
     environment:
       - TZ=GR
       - UMASK=0011
