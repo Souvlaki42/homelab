@@ -1,7 +1,7 @@
 services:
   db:
     image: mariadb:10.6
-    restart: always
+    restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
       - ./data_db:/var/lib/mysql:Z
@@ -13,7 +13,7 @@ services:
 
   app:
     image: nextcloud
-    restart: always
+    restart: unless-stopped
     ports:
       - 3445:80
     links:
